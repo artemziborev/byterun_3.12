@@ -8,7 +8,6 @@ import textwrap
 import types
 import unittest
 
-import six
 
 from byterun.pyvm2 import VirtualMachine, VirtualMachineError
 

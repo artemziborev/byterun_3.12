@@ -4,9 +4,7 @@ import collections
 import inspect
 import types
 
-import six
 
-PY3, PY2 = six.PY3, not six.PY3
 
 
 def make_cell(value):

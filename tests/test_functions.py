@@ -2,7 +2,6 @@
 
 from __future__ import print_function
 from . import vmtest
-import six
 
 PY3 = six.PY3
 
@@ -149,7 +148,7 @@ class TestFunctions(vmtest.VmTestCase):
                         new_globals,
                         f.func_name,
                         f.func_defaults,
-                        f.func_closure,
+                        f.__closure__,
                     ]
                 else:
                     args = [
@@ -195,7 +194,7 @@ class TestFunctions(vmtest.VmTestCase):
                         new_globals,
                         f.func_name,
                         f.func_defaults,
-                        f.func_closure,
+                        f.__closure__,
                     ]
                 else:
                     args = [
@@ -366,7 +365,7 @@ class TestGenerators(vmtest.VmTestCase):
             print(Thing().boom())
             """)
 
-    if PY3: # PY3.3+ only
+     # PY3.3+ only
         def test_yield_from(self):
             self.assert_ok("""\
                 def main():

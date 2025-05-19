@@ -3,7 +3,6 @@
 from __future__ import print_function
 from . import vmtest
 
-import six
 PY3 = six.PY3
 
 class TestWithStatement(vmtest.VmTestCase):
@@ -310,7 +309,7 @@ class TestWithStatement(vmtest.VmTestCase):
                 assert x == 17
             """)
 
-    if PY3:
+    
         def test_generator_with_context_manager(self):
             self.assert_ok("""\
                 from contextlib import contextmanager

@@ -3,7 +3,6 @@
 from __future__ import print_function
 from . import vmtest
 
-import six
 
 PY3, PY2 = six.PY3, not six.PY3
 
@@ -41,7 +40,7 @@ class TestExceptions(vmtest.VmTestCase):
     def test_raise_exception_class(self):
         self.assert_ok("raise ValueError", raises=ValueError)
 
-    if PY2:
+    
         def test_raise_exception_2args(self):
             self.assert_ok("raise ValueError, 'bad'", raises=ValueError)
 
@@ -64,7 +63,7 @@ class TestExceptions(vmtest.VmTestCase):
             print("All done")
             """)
 
-    if PY3:
+    
         def test_raise_exception_from(self):
             self.assert_ok(
                 "raise ValueError from NameError",

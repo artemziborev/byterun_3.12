@@ -1,11 +1,8 @@
 """Basic tests for Byterun."""
 
-from __future__ import print_function
 from . import vmtest
 
-import six
 
-PY3, PY2 = six.PY3, not six.PY3
 
 
 class TestIt(vmtest.VmTestCase):
@@ -23,9 +20,9 @@ class TestIt(vmtest.VmTestCase):
                 print("Midst:",xyz)
 
             
-            print "Pre:",xyz
+            print("Pre:",xyz
             abc()
-            print "Post:",xyz
+            print("Post:",xyz
             """)
 
     def test_for_loop(self):
@@ -65,7 +62,7 @@ class TestIt(vmtest.VmTestCase):
             assert x == 0xA6
             """)
 
-    if PY2:
+    
         def test_inplace_division(self):
             self.assert_ok("""\
                 x, y = 24, 3
@@ -76,7 +73,7 @@ class TestIt(vmtest.VmTestCase):
                 assert x == 2 and y == 3
                 assert isinstance(x, int)
                 """)
-    elif PY3:
+    el
         def test_inplace_division(self):
             self.assert_ok("""\
                 x, y = 24, 3
@@ -468,14 +465,14 @@ class TestIt(vmtest.VmTestCase):
             assert c == 3
             """)
 
-    if PY2:
+    
         def test_exec_statement(self):
             self.assert_ok("""\
                 g = {}
                 exec "a = 11" in g, g
                 assert g['a'] == 11
                 """)
-    elif PY3:
+    el
         def test_exec_statement(self):
             self.assert_ok("""\
                 g = {}
@@ -548,28 +545,28 @@ class TestIt(vmtest.VmTestCase):
             """)
 
 
-if PY2:
+
     class TestPrinting(vmtest.VmTestCase):
         def test_printing(self):
-            self.assert_ok("print 'hello'")
-            self.assert_ok("a = 3; print a+4")
+            self.assert_ok("print('hello'")
+            self.assert_ok("a = 3; print(a+4")
             self.assert_ok("""
-                print 'hi', 17, u'bye', 23,
-                print "", "\t", "the end"
+                print('hi', 17, u'bye', 23,
+                print("", "\t", "the end"
                 """)
 
         def test_printing_in_a_function(self):
             self.assert_ok("""\
                 def fn():
-                    print "hello"
+                    print("hello"
                 fn()
-                print "bye"
+                print("bye"
                 """)
 
         def test_printing_to_a_file(self):
             self.assert_ok("""\
                 import sys
-                print >>sys.stdout, 'hello', 'there'
+                print(>>sys.stdout, 'hello', 'there'
                 """)
 
 
