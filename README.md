@@ -10,7 +10,7 @@ Byterun is a pure-Python Python bytecode interpreter. This version has been upda
 Clone the repository and install dependencies:
 
 ```
-git clone https://github.com/YOUR_USERNAME/byterun.git
+git clone
 cd byterun
 make install
 ```
